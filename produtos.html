@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produtos - Império Masculino</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    /* CSS personalizado para a página de produtos */
+    body {
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+     /* NAVBAR */
+  .nav-bar {
+    background: linear-gradient(90deg, #111, #222);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #d4af37;
+  }
+  .nav-bar img {
+    width: 300px;
+    height: 60px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #d4af37;
+    transition: 0.3s;
+  }
+  .nav-links a:hover {
+    color: #d4af37;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  .search-container {
+flex: 1;
+margin: 0 30px;
+max-width: 400px; /* Aumentando a largura máxima */
+position: relative;
+}
+.search-input {
+width: 100%;
+padding: 12px 20px; /* Aumentando o padding */
+border-radius: 30px;
+border: none;
+font-size: 14px;
+}
+
+  .search-input:focus {
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .login-button i,
+  .cart-icon i {
+    font-size: 22px;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  .login-button:hover i,
+  .cart-icon:hover i {
+    color: #d4af37;
+  }
+
+    .product-page-container {
+  padding: 80px 5%;
+  max-width: 1300px;
+  margin: auto;
+  text-align: center;
+}
+
+.product-page-container h2 {
+  font-size: 42px;
+  color: #d4af37;
+  margin: -10px 0 10px; /* Reduzindo o valor do margin superior */
+  padding-bottom: 15px;
+  border-bottom: 2px solid #d4af37;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.product.compact {
+  max-width: 220px;
+  padding: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-content: center; /* Garante a centralização dos itens */
+  margin: 0 auto; /* Para garantir que o contêiner da grid seja centralizado */
+}
+
+
+.product {
+  background-color: #1f1f1f;
+  border: 1px solid #2c2c2c;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  max-height: 300px; /* Limita o tamanho visual, sem esticar */
+}
+
+
+.product h4 {
+  font-size: 18px;
+  color: #d4af37;
+  margin: 10px 0 6px;
+}
+
+.product p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.product .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d4af37;
+  margin-top: auto;
+}
+.line-separator {
+    width: 100%;
+    height: 2px;
+    background-color: #d4af37;
+    margin: 60px auto 40px auto;
+    border-radius: 5px;
+  }
+.footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    gap: 40px;
+  }
+  .footer-column {
+    flex: 1 1 230px;
+  }
+  .footer-column h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #d4af37;
+  }
+  .footer-column a {
+    font-size: 16px;
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .footer-column a:hover {
+    color: #d4af37;
+  }
+  .footer-bottom {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+  }
+  .social-icons a {
+    color: #d4af37;
+    font-size: 20px;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+  }
+  .social-icons a:hover {
+    color: #fff;
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-column {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .footer-bottom {
+      text-align: center;
+    }
+  }
+
+
+
+   
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="nav-bar">
+    <img src="IMPERIO (1).png" alt="Logo Império Masculino" />
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Início</a>
+      <a href="sobre.html"><i class="fas fa-users"></i> Sobre</a>
+      <a href="produtos.html"><i class="fas fa-tshirt"></i> Produtos</a>
+      <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar produtos...">
+
+    </div>
+    <div class="nav-actions">
+      <a href="login.html" class="login-button"><i class="fas fa-user"></i></a>
+      <a href="sacola.html" class="cart-icon"><i class="fas fa-shopping-bag"></i></a>
+    </div>
+  </div>
+
+  <!-- PRODUTOS -->
+  <div class="product-page-container">
+    <h2>Nossa Coleção</h2>
+    <div class="product-grid">
+
+      <div class="product">
+        <img src="social.png" alt="Camisa Social Branca" />
+        <h4>Camisa Social Branca</h4>
+        <p>Estilo e conforto para seu dia a dia formal.</p>
+        <p class="price">R$ 129,90</p>
+      </div>
+
+      <div class="product">
+        <img src="blaze.png" alt="Blazer Cinza" />
+        <h4>Blazer Cinza Elegante</h4>
+        <p>Conquiste com classe e sofisticação.</p>
+        <p class="price">R$ 299,90</p>
+      </div>
+
+      <div class="product">
+        <img src="terno.png" alt="Terno Azul" />
+        <h4>Conjunto Terno Azul Marinho</h4>
+        <p>Elegância marcante para ocasiões especiais.</p>
+        <p class="price">R$ 499,90</p>
+      </div>
+
+      <div class="product">
+        <img src="gravata.png" alt="Gravata Slim Azul" />
+        <h4>Gravata Slim Azul</h4>
+        <p>Um toque moderno ao seu visual clássico.</p>
+        <p class="price">R$ 59,90</p>
+      </div>
+
+      <div class="product">
+        <img src="calça_social_preta.png" alt="Calça Social Preta" />
+        <h4>Calça Social Preta</h4>
+        <p>Corte impecável para homens exigentes.</p>
+        <p class="price">R$ 159,90</p>
+      </div>
+
+      <div class="product">
+        <img src="calça_social_cinza.png" alt="Colete Social Cinza" />
+        <h4>Colete Social Cinza</h4>
+        <p>Complete seu look com sofisticação.</p>
+        <p class="price">R$ 139,90</p>
+      </div>
+
+      <div class="product">
+        <img src="sapato_social_couro.png" alt="Sapato Social Couro" />
+        <h4>Sapato Social Couro</h4>
+        <p>Elegância dos pés à cabeça.</p>
+        <p class="price">R$ 249,90</p>
+      </div>
+
+      <div class="product">
+        <img src="camisa_preta.png" alt="Camisa Social Preta" />
+        <h4>Camisa Social Preta</h4>
+        <p>Versatilidade e estilo em uma peça única.</p>
+        <p class="price">R$ 129,90</p>
+      </div>
+
+      <div class="product">
+        <img src="cinto.png" alt="Cinto de Couro Marrom" />
+        <h4>Cinto de Couro Marrom</h4>
+        <p>Detalhe que transforma o look.</p>
+        <p class="price">R$ 79,90</p>
+      </div>
+
+      <div class="product">
+        <img src="relogio.png" alt="Relógio Prata Luxo" />
+        <h4>Rolex Prata de Luxo</h4>
+        <p>Um acessório de presença para homens de impacto.</p>
+        <p class="price">R$ 20.000,00</p>
+      </div>
+
+      <div class="product">
+        <img src="pulseira.png" alt="Pulseira de Couro" />
+        <h4>Pulseira de Couro</h4>
+        <p>Estilo casual com atitude e identidade.</p>
+        <p class="price">R$ 49,90</p>
+      </div>
+
+      <div class="product">
+        <img src="oculos.png" alt="Óculos Escuros Modernos" />
+        <h4>Óculos Escuros Modernos</h4>
+        <p>Proteção e elegância em todos os olhares.</p>
+        <p class="price">R$ 119,90</p>
+      </div>
+
+    </div>
+  </div>
+<div class="line-separator"></div>
+  <!-- FOOTER -->
+<footer>
+ <div class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h4>Sobre</h4>
+      <a href="sobre.html">Nossa história</a>
+      <a href="contato.html">Fale conosco</a>
+      <a href="produtos.html">Nossos produtos</a>
+    </div>
+    <div class="footer-column">
+      <h4>Ajuda</h4>
+      <a href="#">FAQ</a>
+      <a href="#">Termos e condições</a>
+      <a href="#">Política de privacidade</a>
+    </div>
+    <div class="footer-column">
+      <h4>Contato</h4>
+      <p>contato@imperiomasculino.com</p>
+      <p>(11) 98765-4321</p>
+    </div>
+    <div class="footer-column">
+      <h4>Institucional</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Carreiras</a>
+      <a href="#">Sustentabilidade</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Império Masculino - Todos os direitos reservados</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+    // Captura o valor do campo de pesquisa e filtra os produtos
+    document.getElementById('searchInput').addEventListener('input', function(event) {
+      const query = event.target.value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+
+      products.forEach(product => {
+        const productName = product.querySelector('h4').innerText.toLowerCase();
+        const productDescription = product.querySelector('p').innerText.toLowerCase();
+
+        if (productName.includes(query) || productDescription.includes(query)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+  </script>
+<script>
+  // Captura o valor do parâmetro de busca na URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+
+  // Função para filtrar os produtos com base na pesquisa
+  function filterProducts(query) {
+    const products = document.querySelectorAll('.product'); // Seleciona todos os produtos na página
+    products.forEach(product => {
+      const productName = product.querySelector('h4').innerText.toLowerCase();
+      const productDescription = product.querySelector('p').innerText.toLowerCase();
+
+      // Verifica se o nome ou descrição do produto contém a consulta
+      if (productName.includes(query.toLowerCase()) || productDescription.includes(query.toLowerCase())) {
+        product.style.display = 'block'; // Exibe o produto
+      } else {
+        product.style.display = 'none'; // Oculta o produto
+      }
+    });
+  }
+
+  // Se houver uma pesquisa na URL, filtra os produtos
+  if (searchQuery) {
+    filterProducts(searchQuery);
+  }
+</script>
+
+
+
+ 
+
+
+
+</body>
+</html>

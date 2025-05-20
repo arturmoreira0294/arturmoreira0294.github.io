@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Império Masculino - Roupas Sociais Masculinas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+  }
+
+  /* NAVBAR */
+  .nav-bar {
+    background: linear-gradient(90deg, #111, #222);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #d4af37;
+  }
+  .nav-bar img {
+    width: 300px;
+    height: 60px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #d4af37;
+    transition: 0.3s;
+  }
+  .nav-links a:hover {
+    color: #d4af37;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  .search-container {
+flex: 1;
+margin: 0 30px;
+max-width: 400px; /* Aumentando a largura máxima */
+position: relative;
+}
+.search-input {
+width: 100%;
+padding: 12px 20px; /* Aumentando o padding */
+border-radius: 30px;
+border: none;
+font-size: 14px;
+}
+
+  .search-input:focus {
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .login-button i,
+  .cart-icon i {
+    font-size: 22px;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  .login-button:hover i,
+  .cart-icon:hover i {
+    color: #d4af37;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    background: linear-gradient(rgba(17, 17, 17, 0.6), rgba(34, 34, 34, 0.6)), url('hero inicio.jpg') no-repeat center center/cover;
+    height: 93vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+  }
+  .hero h2 {
+    font-size: 64px;
+    color: #d4af37;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  }
+  .hero p {
+    font-size: 22px;
+    color: #e0e0e0;
+    max-width: 700px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+  }
+  .hero a.hero-button {
+    background-color: #d4af37;
+    color: #111;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .hero a.hero-button:hover {
+    background-color: #fff;
+    color: #111;
+  }
+
+  /* CONTENT & PRODUCTS */
+  .content-container {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .content-container h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .content-container p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    color: #ccc;
+  }
+  .product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: visible; /* Permite que o hover funcione sem cortar */
+  padding: 0 30px;
+}
+.product {
+  flex: 0 0 23%;
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  z-index: 1;
+}
+.product:hover {
+  transform: scale(1.03);
+  z-index: 2; /* Garante que o item esteja acima dos outros ao expandir */
+}
+
+  .product img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .product h4 {
+    margin: 15px 0 5px;
+    color: #d4af37;
+  }
+  .product p {
+    font-size: 16px;
+    margin: 0 0 15px;
+    color: #ccc;
+  }
+  .product .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d4af37;
+    margin-bottom: 15px;
+  }
+
+  /* CUSTOMER REVIEWS */
+  .customer-reviews {
+    background-color: #121212;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    margin: 40px 20px;
+  }
+  .customer-reviews h3 {
+    font-family: 'Georgia', serif;
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: #d4af37;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+  .reviews-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+  .review {
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    text-align: left;
+    transition: transform 0.3s ease;
+    position: relative;
+    color: #ccc;
+  }
+  .review:hover {
+    transform: scale(1.05);
+  }
+  .review::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #d4af37;
+    border-radius: 10px 10px 0 0;
+  }
+  .review .stars {
+    color: #d4af37;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .review p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .review span {
+    font-weight: bold;
+    color: #d4af37;
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+.line-separator {
+    width: 100%;
+    height: 2px;
+    background-color: #d4af37;
+    margin: 60px auto 40px auto;
+    border-radius: 5px;
+  }
+  /* /* FOOTER */
+.footer {
+background-color: #111;
+color: #fff;
+text-align: center;
+padding: 60px 20px;
+}
+.footer-content {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+text-align: left;
+gap: 40px;
+}
+.footer-column {
+flex: 1 1 230px;
+}
+.footer-column h4 {
+font-size: 24px;
+margin-bottom: 20px;
+color: #d4af37;
+}
+.footer-column a {
+font-size: 16px;
+color: #ccc;
+text-decoration: none;
+display: block;
+margin-bottom: 12px;
+}
+.footer-column a:hover {
+color: #d4af37;
+}
+.footer-bottom {
+margin-top: 40px;
+font-size: 14px;
+color: #777;
+}
+.social-icons a {
+color: #d4af37;
+font-size: 20px;
+margin-left: 15px;
+transition: color 0.3s ease;
+}
+.social-icons a:hover {
+color: #fff;
+}
+
+/* Estilo para a coluna "Institucional" */
+.footer-column h4 {
+color: #d4af37;
+}
+.footer-column a {
+color: #ccc;
+font-size: 16px;
+display: block;
+margin-bottom: 12px;
+}
+.footer-column a:hover {
+color: #d4af37;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+.footer-content {
+  flex-direction: column;
+  align-items: center;
+}
+.footer-column {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.footer-bottom {
+  text-align: center;
+}
+}
+
+  .social-icons a {
+    color: #d4af37;
+    font-size: 20px;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+  }
+  .social-icons a:hover {
+    color: #fff;
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .reviews-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .product-grid {
+      flex-wrap: wrap;
+    }
+  }
+  </style>
+  
+  
+  <!-- NAVBAR -->
+  <div class="nav-bar">
+    <img src="IMPERIO (1).png" alt="Logo Império Masculino">
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Início</a>
+      <a href="sobre.html"><i class="fas fa-users"></i> Sobre</a>
+      <a href="produtos.html"><i class="fas fa-tshirt"></i> Produtos</a>
+      <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
+    </div>
+   <!-- Barra de Pesquisa com Formulário -->
+<!-- Este é o formulário de pesquisa -->
+<div class="search-container">
+  <form action="produtos.html" method="get">
+    <input type="text" name="search" class="search-input" placeholder="Buscar produtos..." />
+  </form>
+</div>
+
+
+    <div class="nav-actions">
+      <a href="login.html" class="login-button"><i class="fas fa-user"></i></a>
+      <a href="sacola.html" class="cart-icon"><i class="fas fa-shopping-bag"></i></a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2>Vista o poder da elegância</h2>
+    <p>Na Império Masculino, criamos roupas sociais masculinas com excelência, para homens que sabem o valor de uma boa presença.</p>
+    <a href="produtos.html" class="hero-button">Ver Produtos</a>
+  </div>
+
+  <!-- DESTAQUES -->
+  <div class="content-container">
+    <h3>Destaques da nossa coleção</h3>
+    <p>Selecionamos alguns dos nossos produtos mais procurados para você conhecer.</p>
+    <div class="product-grid">
+      <div class="product">
+        <img src="social.png" alt="Camisa Social Branca">
+        <h4>Camisa Social Branca</h4>
+        <p>Perfeita para ocasiões formais com corte moderno.</p>
+        <p class="price">R$ 129,90</p>
+      </div>
+      <div class="product">
+        <img src="blaze.png" alt="Blazer Cinza Elegante">
+        <h4>Blazer Cinza Elegante</h4>
+        <p>Conforto e classe em um só look.</p>
+        <p class="price">R$ 299,90</p>
+      </div>
+      <div class="product">
+        <img src="terno.png" alt="Conjunto Terno Azul Marinho">
+        <h4>Conjunto Terno Azul Marinho</h4>
+        <p>Estilo sofisticado para eventos importantes.</p>
+        <p class="price">R$ 499,90</p>
+      </div>
+      <div class="product">
+        <img src="gravata.png" alt="Gravata Slim Azul">
+        <h4>Gravata Slim Azul</h4>
+        <p>Um toque moderno ao seu visual.</p>
+        <p class="price">R$ 59,90</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPINIÕES DOS CLIENTES -->
+  <div class="customer-reviews">
+    <h3>O que nossos clientes dizem</h3>
+    <br>
+    <br>
+    <div class="reviews-container">
+      <div class="review">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>Excelente qualidade! Super recomendo a loja, atendimento incrível e os produtos são sensacionais!</p>
+        <span>João Silva</span>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p>Comprei um terno e adorei! O caimento é perfeito e me sinto incrível usando.</p>
+        <span>Lucas Oliveira</span>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+        <p>Produto de alta qualidade, chegou rápido e o atendimento ao cliente foi ótimo. Com certeza vou comprar mais.</p>
+        <span>Mariana Costa</span>
+      </div>
+    </div>
+  </div>
+<div class="line-separator"></div>
+  <!-- FOOTER -->
+ <!-- FOOTER -->
+<div class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h4>Sobre</h4>
+      <a href="sobre.html">Nossa história</a>
+      <a href="contato.html">Fale conosco</a>
+      <a href="produtos.html">Nossos produtos</a>
+    </div>
+    <div class="footer-column">
+      <h4>Ajuda</h4>
+      <a href="#">FAQ</a>
+      <a href="#">Termos e condições</a>
+      <a href="#">Política de privacidade</a>
+    </div>
+    <div class="footer-column">
+      <h4>Contato</h4>
+      <p>contato@imperiomasculino.com</p>
+      <p>(11) 98765-4321</p>
+    </div>
+    <div class="footer-column">
+      <h4>Institucional</h4>
+      <a href="#">Sobre nós</a>
+      <a href="#">Carreiras</a>
+      <a href="#">Sustentabilidade</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Império Masculino - Todos os direitos reservados</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</div>
+<script>
+  // Captura o valor do parâmetro de busca na URL
+const urlParams = new URLSearchParams(window.location.search);
+const searchQuery = urlParams.get('search');
+
+// Aqui você pode usar `searchQuery` para filtrar os produtos
+console.log(searchQuery); // Para verificar se o valor está sendo capturado corretamente
+
+</script>
+</body>
+</html>

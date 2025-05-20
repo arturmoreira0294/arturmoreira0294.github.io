@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nós - Império Masculino</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+  
+</head>
+<body>
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+  }
+  .nav-bar {
+    background: linear-gradient(90deg, #111, #222);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #d4af37;
+  }
+  .nav-bar img {
+    width: 300px;
+    height: 60px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #d4af37;
+    transition: 0.3s;
+  }
+  .nav-links a:hover {
+    color: #d4af37;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  .search-container {
+flex: 1;
+margin: 0 30px;
+max-width: 400px; /* Aumentando a largura máxima */
+position: relative;
+}
+.search-input {
+width: 100%;
+padding: 12px 20px; /* Aumentando o padding */
+border-radius: 30px;
+border: none;
+font-size: 14px;
+}
+
+  .search-input:focus {
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .login-button i,
+  .cart-icon i {
+    font-size: 22px;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  .login-button:hover i,
+  .cart-icon:hover i {
+    color: #d4af37;
+  }
+ 
+  .about-section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .about-section h1 {
+    font-size: 48px;
+    color: #d4af37;
+    margin-bottom: 20px;
+  }
+  .about-section p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+  .mission-vision {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .mission-vision div {
+    background-color: #1f1f1f;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    flex: 1 1 300px;
+  }
+  .mission-vision h2 {
+    font-size: 28px;
+    color: #d4af37;
+    margin-bottom: 15px;
+  }
+  .mission-vision p {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.6;
+  }
+
+  /* Linha de separação para o footer */
+  .line-separator {
+    width: 100%;
+    height: 2px;
+    background-color: #d4af37;
+    margin: 60px auto 40px auto;
+    border-radius: 5px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+    gap: 40px;
+  }
+  .footer-column {
+    flex: 1 1 230px;
+  }
+  .footer-column h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #d4af37;
+  }
+  .footer-column a {
+    font-size: 16px;
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .footer-column a:hover {
+    color: #d4af37;
+  }
+  .footer-bottom {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+  }
+  .social-icons a {
+    color: #d4af37;
+    font-size: 20px;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+  }
+  .social-icons a:hover {
+    color: #fff;
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-column {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .footer-bottom {
+      text-align: center;
+    }
+  }
+  </style>
+
+  <!-- NAVBAR -->
+  <div class="nav-bar">
+    <img src="IMPERIO (1).png" alt="Logo Império Masculino">
+    <div class="nav-links">
+      <a href="index.html"><i class="fas fa-home"></i> Início</a>
+      <a href="sobre.html"><i class="fas fa-users"></i> Sobre</a>
+      <a href="produtos.html"><i class="fas fa-tshirt"></i> Produtos</a>
+      <a href="contato.html"><i class="fas fa-envelope"></i> Contato</a>
+    </div>
+    <div class="search-container">
+  <form action="produtos.html" method="get">
+    <input type="text" name="search" class="search-input" placeholder="Buscar produtos..." />
+  </form>
+</div>
+    <div class="nav-actions">
+      <a href="login.html" class="login-button"><i class="fas fa-user"></i></a>
+      <a href="sacola.html" class="cart-icon"><i class="fas fa-shopping-bag"></i></a>
+    </div>
+  </div>
+
+  <!-- SOBRE NÓS -->
+  <div class="about-section">
+    <h1>Sobre Nós</h1>
+    <p>Fundada em 2020, a Império Masculino nasceu da paixão pela elegância e pelo poder que uma boa roupa transmite. 
+    Mais do que vestir, queremos proporcionar experiências que elevem a autoestima e o estilo dos nossos clientes.
+    Cada peça é pensada nos mínimos detalhes para garantir qualidade, conforto e sofisticação.</p>
+
+    <p>Combinando tradição e inovação, somos movidos pelo compromisso de redefinir a moda social masculina,
+    tornando cada ocasião — seja um grande evento ou uma reunião importante — um momento para se destacar.</p>
+
+    <p>Nosso compromisso vai além da aparência. Acreditamos que cada homem carrega dentro de si um império próprio, 
+    feito de sonhos, conquistas e histórias únicas. Nosso propósito é ajudá-lo a expressar essa grandeza através de roupas que refletem força, autenticidade e elegância.</p>
+
+    <p>Trabalhamos com tecidos de alta qualidade, design contemporâneo e modelagens que respeitam a diversidade de estilos e corpos. 
+    Nossa equipe é formada por especialistas em moda, atentos às tendências globais e focados em proporcionar uma experiência personalizada, seja em nossa loja física ou online.</p>
+
+    <p>Seja para um casamento, uma entrevista de trabalho, uma reunião importante ou um jantar especial, a Império Masculino é a escolha certa para quem valoriza vestir-se bem e transmitir confiança em cada detalhe.</p>
+
+    <div class="mission-vision">
+      <div>
+        <h2>Missão</h2>
+        <p>Oferecer roupas sociais de alta qualidade que transmitam confiança, elegância e autenticidade a cada cliente.</p>
+      </div>
+      <div>
+        <h2>Visão</h2>
+        <p>Ser referência nacional em moda social masculina, reconhecida pela excelência no atendimento e no design.</p>
+      </div>
+      <div>
+        <h2>Valores</h2>
+        <p>Comprometimento, inovação, respeito, excelência e paixão pelo que fazemos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINHA DE TRANSIÇÃO PARA O FOOTER -->
+  <div class="line-separator"></div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>Sobre</h4>
+        <a href="sobre.html">Nossa história</a>
+        <a href="contato.html">Fale conosco</a>
+        <a href="produtos.html">Nossos produtos</a>
+      </div>
+      <div class="footer-column">
+        <h4>Ajuda</h4>
+        <a href="#">FAQ</a>
+        <a href="#">Termos e condições</a>
+        <a href="#">Política de privacidade</a>
+      </div>
+      <div class="footer-column">
+        <h4>Contato</h4>
+        <p>contato@imperiomasculino.com</p>
+        <p>(11) 98765-4321</p>
+      </div>
+      <div class="footer-column">
+        <h4>Institucional</h4>
+        <a href="#">Sobre nós</a>
+        <a href="#">Carreiras</a>
+        <a href="#">Sustentabilidade</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Império Masculino - Todos os direitos reservados</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Captura o valor do parâmetro de busca na URL
+const urlParams = new URLSearchParams(window.location.search);
+const searchQuery = urlParams.get('search');
+
+// Aqui você pode usar `searchQuery` para filtrar os produtos
+console.log(searchQuery); // Para verificar se o valor está sendo capturado corretamente
+
+
+</script>
+
+</body>
+</html>
